@@ -1,0 +1,948 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+:root {
+    --background: white;              
+    --text: black ;
+
+    /* --background: #6f2a41;  purpleredish good with white n blue*/
+
+    /* --background: #101820FF;              
+    --text: FEE715FF ;           Yellow Black */
+    --hovermini: box-shadow: 0px 4px 7px rgba(0,0,0,0.2);
+}
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+}
+body {
+    /* background-image: linear-gradient(to left bottom, #1d4f60, #5c7688, #95a0af, #ccced6, #ffffff);  */
+    display: grid;
+    grid-template-columns: 20% 10% 40% 10% 20%;
+    grid-template-rows: 150px 450px 200px 600px;
+    color: white;
+    overflow-x: hidden;
+    background: var(--background);
+
+}
+
+/* styling av startsida och navigation */
+
+/* Navigation styling */
+
+.navbar {
+    display: flex;
+    grid-column: 1 / end;
+    grid-row: 1 / 2;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+.navbar img {
+    height: 160px;
+    width: auto;
+    justify-self: start;
+    margin-top: 20%;
+}
+.navbar img:hover {
+    cursor: pointer;
+}
+.navbar #shoppingcart_link {
+    position: relative;
+    top: -10%;
+    right: 6%;
+
+    width: 2.5%;
+
+    background: none;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar .shopcart_img {
+    width: 100%;
+    height: auto;
+    transition: all .3s ease-out;
+}
+.navbar .shopcart_img:hover, .navbar .shopcart_img:active {
+    scale: 1.1;
+    rotate: -15deg;
+}
+.onthispage {
+    scale: 1.1;
+    rotate: -15deg;
+}
+.navbar #shoppingcart_link {
+    text-decoration: none;
+}
+.navbar #shoppingcart_link #counting_cart {
+    text-decoration: none;
+    color: orange;
+    font-size: 1.5em;
+    font-weight: 500;
+
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 90px;
+
+ }
+.nav-item a {
+    position: relative;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+}
+.nav-item .glbnav:hover {
+    color: #3498db;
+    cursor: pointer;
+}
+/* Design för underline hover effect på a tag */
+.glbnav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: hotpink;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+.glbnav:hover::after,
+.glbnav:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+/* current page underline or styling*/
+.current::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: hotpink;
+    opacity: 1;
+}
+#navinfodiv {
+    position: absolute;
+    top: 60px; right: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+#navinfo {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 90px;
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color:rgb(0, 0, 0);
+}
+#phover{                            
+    background: rgba(13, 9, 36, 0.8);
+    width: 240px;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all .3s ease-out; 
+    transform: scale(.2);
+    letter-spacing: 1px;
+
+}
+#navinfo:hover, #navinfo:active {
+    cursor: pointer;
+}
+#navinfo:hover + #phover {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: top;
+    z-index: 10;
+}                  
+/* Och active för touch eller "intryck när man håller" */
+#navinfo:active + #phover { 
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: top;
+}
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    grid-column: 1 / end;
+    grid-row: 5 / 6;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+
+    /* position: absolute;
+    bottom: 0;
+    top: 100%;
+    left: 0;
+    right: 0; */
+}
+footer div {
+    background-color: none;
+    width: 25%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2%;
+}
+footer div h2 {
+    font-size: 1.5em;
+    position: relative; 
+    
+}
+footer div p {
+   font-size: 16px;
+}
+.footertext {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+#sendfeedbackDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border-left: solid .1em white;
+    border-top: solid .1em white;
+    height: 80%;
+    padding-left: 1em;
+    
+}
+#sendfeedback {
+    width: 35%;
+    height: 30%;
+    text-align: center;
+    font-size: 2em;
+}
+#sendfbBtn {
+    width: 60%;
+    height: 30%;
+}
+.responseFeedbackDiv {
+    width: 30vw;
+    height: 40vh;
+    background: rgba(0, 0, 0, 0.8);
+    position: sticky;
+    top: 20%;
+    right: 30%;
+    border-radius: 6px;
+    box-shadow: inset 0 0 10px white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    flex-direction: column;
+    text-align: center;
+    gap: 5%;
+    
+}
+.deleteresponseFeedbackDiv {
+    width: 25%;
+    height: 15%;
+}
+
+.glassbox {
+    grid-column: 1 / 4;
+    grid-row: 2 / 5;
+        position: relative;
+        top: 5%;
+        left: 5%;
+        width: 50vw;
+        height: 80vh;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+#stylesbackground {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+.glasscard {
+
+    translate: -15%;
+    width: 60%;
+    height: 60%;
+
+    backdrop-filter: blur(10px) saturate(190%);
+    -webkit-backdrop-filter: blur(10px) saturate(190%);
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    gap: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.glasscard h1 {
+    font-size: 3em;
+}
+.glasscard button {
+    align-self: flex-end;
+    position: relative;
+    top: 15%;
+    right: 5%;
+    
+    width: 40%;
+    height: 13%;
+    border: solid 1px black;
+    background: var(--background);
+    /* color: var(--text); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    color: rgb(5, 5, 31);
+
+    transition: all .3s ease-out;
+}
+#btnExplain {
+    position: relative;
+    top: 15%;
+}
+.glasscard button:hover, .glasscard button:active {
+    border: solid 1px white;
+    background-color: rgba(255, 255, 255, 0.11);
+    color: var(--background);
+    border-radius: 0 10% 10% 0; 
+    translate: 20px;
+    box-shadow: 0 2px 10px black;
+
+    cursor: pointer;
+}
+#next {
+    width: 20%;
+    transition: all .4s ease-out;
+    opacity: 0;
+}
+.glasscard button:hover #next {
+    translate: 60px;
+    opacity: 1;
+    
+}
+.glasscard button:active #next {
+    translate: 60px;
+    opacity: 1;
+}
+.frame {
+    background-color: #36454F;
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;
+    width: 50%;
+    height: 98%;
+    position: relative;
+    top: 2%;
+    z-index: -1;
+} 
+.sideart {
+    grid-column: 4 / 6;
+    grid-row: 2 / 5;
+}
+#illustration {
+    width: 400%;
+    height: auto;
+    position: relative;
+    top: 70%; right: 120%;
+}
+/* .bottom {
+    grid-column: 1 / 6;
+    grid-row: 4 / 5;
+    display: flex;
+    justify-content: baseline;
+    align-items: flex-end;
+}
+.framebottom {
+    background-color: #36454F;
+    height: 50%;
+    width: 100%;
+
+} */
+
+/* end of first page  */
+
+
+/* camera styling prev och efter snapshot */
+
+#cameraPosition {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#camera{
+    width: 480px;
+    height: 480px;
+    border: 1px solid black;
+  
+        /* position: relative;
+        top: 0; bottom: 0; right: -20%; */
+}
+#resultsDiv {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.displayedImg {
+    /* position: absolute;
+    top: 150px; bottom: 0; right: 0; left: 38%; */
+}
+#snapDiv {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+} 
+#snapDiv #takeSnap {
+    width: 30%;
+    height: 32%;
+    /* border: solid 1px black; */
+    background: var(--background);
+    color: var(--text);
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 5px;
+
+    transition: all .3s ease-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#snapDiv #takeSnap:hover, #snapDiv #takeSnap:active {
+    box-shadow: 0px 4px 7px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+#cameraButtonImg {
+    width: 15%;
+    height: auto;
+
+    translate: -120px;
+    opacity: 0;
+}
+#snapshotText {
+    translate: -25px;
+    transition: all .3s ease-out;
+}
+#snapDiv #takeSnap:hover #cameraButtonImg {
+    transition: .3s;
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate (-20deg);
+
+    translate: -4px;
+    opacity: 1;
+}
+#snapDiv #takeSnap:hover #snapshotText {
+    translate: 0;
+}
+
+#snapDiv #takeSnap:active #cameraButtonImg {
+    transition: .3s;
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate (-20deg);
+}
+#countdown {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    
+    display: flex;
+    justify-content: center;
+    
+    font-size: 3em;
+    font-weight: 300;
+   
+}
+#counter {
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0.9);
+    width: 8%;
+    height: 15%;
+    border-radius: 120px;
+    text-align: center;
+    opacity: 0;
+}
+
+#createButton {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+
+    position: relative;
+    top: 10%;
+}
+.showImages, .deleteImages {
+    border: 1px solid white;
+    background: none;
+    color: var(--text);
+    
+    width: 30%;
+    height: 15%;
+    
+    background-color: var(--background);
+    box-shadow: 0 0 5px black;
+    border-radius: 3px;
+
+    flex: 0 1 30%;
+
+    position: relative;
+    top: 40%;
+
+    transition: all .4s ease-out;
+}
+.showImages:hover, 
+.showImages:active {
+    box-shadow: 0 0 10px rgb(190, 247, 255);
+    translate: 0 -2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgb(190, 247, 255);
+    border: solid 1px rgb(190, 247, 255);
+    
+    cursor: pointer;
+}
+.deleteImages:hover, 
+.deleteImages:active {
+    box-shadow: 0 0 10px rgb(255, 159, 179);
+    translate: 0 -2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgb(255, 159, 179);
+    border: solid 1px rgb(255, 159, 179);
+    
+    cursor: pointer;
+}
+
+#h1text {
+    font-size: 1.5em;
+    flex: 1 0 100%;
+
+    opacity: 0;
+    
+    color: black;
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+
+    position: relative;
+    top: 77%;
+}
+
+/* clothes that pops up */
+#displayClothes {
+    border: solid 1px black;
+    /* background: #36454F; */
+
+    grid-column: 1 / 3;
+    grid-row: 2 / 5;
+    position: relative;
+    top: 5%;
+    left: 15%;
+    height: 55%;
+
+    text-align: center;
+    padding: 30px;
+
+    /* opacity: 1; */
+    visibility: hidden;
+
+        background: rgba( 255, 255, 255, 0.4 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 6px );
+        -webkit-backdrop-filter: blur( 6px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+#displayClothes h1, #displayMoreClothes h1 {
+    color: #101820FF;
+    letter-spacing: 2px;
+}
+
+#displayMoreClothes {
+    border: solid 1px black;
+    
+    grid-column: 4 / 6;
+    grid-row: 2 / 5;
+    position: relative;
+    top: 5%;
+    right: 15%;
+    height: 55%;
+
+    text-align: center;
+    padding: 30px;
+
+    visibility: hidden;
+
+        background: rgba( 255, 255, 255, 0.4 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 6px );
+        -webkit-backdrop-filter: blur( 6px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.imgpants {
+    width: 100%;
+    height: 190px;
+    max-width: 100%;
+    max-height: 100%;
+}
+/* .pants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+} */
+.imgshirt, .imgpants {
+    width: 100%;
+    filter: brightness(70%);
+    transition: all .1s ease-out;
+    
+}
+.imgshirt:hover, .imgshirt:active, .imgpants:hover, .imgpants:active {
+    scale: 1.1;
+    filter: brightness(110%);
+    /* filter: saturate(180%); */
+    z-index: 2;
+    /* filter: drop-shadow(0 0 3px rgb(216, 216, 216)); */
+}
+#imgCenter {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1; */
+
+    position: relative;
+    top: 5%;
+}
+#shirtHolder {
+    width: 22%;
+    position: absolute;
+    top: 14%; left: 39.5%;
+    z-index: 2;
+}
+#pantsHolder {
+    width: 30%;
+    position: absolute;
+    top: 47%; left: 35.4%;
+    z-index: 1;
+
+}
+/*EVENTUELL RELATIVE POS FÖR KLÄDER*/
+/* #shirtHolder {
+    width: 18%;
+    position: relative;
+    top: 2%; left: 41%;
+    z-index: 2;
+}
+#pantsHolder {
+    width: 26%;
+    position: relative;
+    top: 45%; left: 18.6%;
+    z-index: 1;
+} */
+.shopbtn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 20px;
+    width: 100%;
+    height: max-content;
+    transform: translateY(-25px);
+
+    transition: all .2s ease-out;
+}
+.readmorebtn {
+    width: max-content;
+    height: max-content;
+    border-radius: 120px;
+    background: none;
+    display: contents;
+}
+.infoshop {
+    width: 15%;
+    position: relative;
+    border-radius: 120px;
+    transition: all .2s ease-out;
+}
+.infoshop:hover {
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    scale: 1.1;
+    /* transform: translateY(1px); */
+}
+.shop {
+    width: 55%;
+    height: 10%;
+    background: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: inherit;
+
+    transition: all .2s ease-out;
+}
+.shop:hover, .shop:active {
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    scale: 1.05;
+    /* transform: translateY(1px); */
+}
+/* .shop:hover .shopimg, 
+.shop:active .shopimg {
+    transform: rotate(-15deg)
+} */
+.shopdiv {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 2px 2px 7px rgb(18, 47, 66), -2px -2px 7px rgb(204, 241, 238);
+    border-radius: 6px;
+    padding: .7%;
+    flex-wrap: wrap;
+
+}
+.imgshirt {
+    width: 100%;
+    height: 190px;
+    max-width: 100%;
+    max-height: 100%;
+}
+.shopdiv > select {
+    flex: 1;
+}
+.shopdiv > .price  {
+    flex: 150px;
+    color: black;
+    /*border: solid .1em rgba(128, 189, 194, 0.400);*/
+    border-bottom: .1em solid #182535;
+    padding-bottom: .3em;
+    padding-top: .3em;
+}
+select {
+    width: 30%;
+    height: 25px;
+    background: rgb(255, 255, 255);
+    border-radius: inherit;
+}
+.shopimg {
+    width: 35%;
+    height: auto;
+    transition: all .3s ease-out;
+}
+.resetbtn, .clearbtn {
+    color: var(--text);
+    border-radius: 20px;
+    
+    width: 30%;
+    height: 15%;
+    
+    background-color: var(--background);
+    position: relative;
+    top: 30%;
+
+    transition: all .2s ease-out;
+}
+.resetbtn:hover, .resetbtn:active {
+    box-shadow: 0px 2px 7px rgb(255, 159, 179);
+    color: rgb(255, 159, 179);
+}
+.clearbtn:hover, .clearbtn:active {
+    box-shadow: 0px 2px 7px rgb(190, 247, 255);
+    color: rgb(190, 247, 255);
+}
+#errorShopDiv {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+}
+#errorShop {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    gap: .5em;
+    padding: 3%;
+
+    height: 30%;
+    width: 50%;
+    box-shadow: 6px 6px 15px black,
+    -6px -6px 15px white;
+    border-radius: 9px;
+}
+#errorShop button {
+    width: 25%;
+    height: 25%;
+    border-radius: inherit;
+}
+#infoShop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.itemInfo {
+    color: black;
+    text-align: center;
+    font-size: 1.2em;
+}
+.productinfo {
+    color: black;
+    text-align: center;
+    font-size: 1.2em;
+}
+#infoShop img {
+    width: 110%;
+}
+
+/* end camera  */
+
+/* SHOPPING BAG PAGE */
+#shopping_bag {
+    grid-column: 2 / 5;
+    grid-row: 2 / 5;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+
+}
+.itemsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    border: solid 1px #eff7fa;
+    box-shadow: 0 0 5px black;
+    width: 50%;
+    margin: 1%;
+    border-radius: 6px;
+
+    background: #eff7fa8a;
+
+}
+.shoppingbagImg { 
+    width: 100px;
+    max-width: 100%;
+}
+.shoppingbagText {
+    font-size: 2em;
+    color: black;
+}
+.shoppingbagDelete {
+    background-color: rgb(253, 253, 253);
+    width: 8%;
+    height: 50%;
+    border-radius: 180px;
+    color: red;
+    font-size: 2.5em;
+    margin-left: 6%;
+
+    transition: all .3s ease;
+}
+.shoppingbagDelete:hover, .shoppingbagDelete:active {
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    rotate: 10deg;
+}
+.orderMessage {
+    background: #eff7fa8a;
+    color: black;
+    font-size: 1.6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    right: 120%; top: 50%;
+
+    border: solid 1px #eff7fa;
+    box-shadow: 0 0 5px black;
+    width: 100%;
+    margin: 1%;
+    border-radius: 6px;
+}
+#sendOrder {
+    width: 55%;
+    height: 20%;
+    position: relative;
+    left: 280%; top: 10%;
+
+    background: white;
+    color: black;
+    font-size: 1.5em;
+    border-radius: 9px;
+    box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
+    transition: all .3s ease-out;
+}
+#sendOrder:hover, #sendOrder:active {
+    background: rgba(40, 79, 88, 0.7);
+    color: white;
+    cursor: pointer;
+    translate: 2%;
+    box-shadow: 10px 10px 60px #504f4f,
+    -20px -20px 60px #ffffff;;
+}
+
+
+

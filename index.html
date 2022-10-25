@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome </title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="shoppingcart.js"></script>
+</head>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html"><img src="logotype SL.png" alt="Company Logo"></a>
+
+        <ul class="nav">
+          <li class="nav-item"><a href="index.html" class="current glbnav">Home </a></li>
+          <li class="nav-item"><a href="camera.html" class="glbnav"> Find your Style </a></li>
+          <li class="nav-item"><a href="" class="glbnav"> Available in Store </a></li>
+        </ul> 
+        <button id="shoppingcart_link" onclick="shoppingCart()"><img src="shopping-cart.png" alt="shoppingcart" class="shopcart_img"><p id="counting_cart"></p></button>
+      </nav>
+      
+      <div id="navinfodiv"><li id="navinfo"><p> i </p></li> <p id="phover"> If any problems occur, kindly contact our employees in the store. <br> <br> If noone is available at this time, you can turn to our customer service, which is available during all our opening hours. <br> <br> Telephone: +46 01 001 101 </p></div>
+
+      <div class="glassbox"> <img src="style2.jpg" alt="stylesbackground" id="stylesbackground"> </div>
+      <div class="glassbox"> <div class="glasscard"> <h1>FIND YOUR STYLE!</h1>
+      <p>Save time using our virtual closet! <br> Here you can see clothes and combine them! <br> <br> You can also see if your size is available in store! <br> <br> <i>How it works?</i><br> First we take a temporary picture of you <br> Then we let you be the stylist! </p>
+  
+  
+      <p id="btnExplain">Press 'GO!' to be redirected and have fun styling! </p>
+      <button onclick="location.href='camera.html'"> GO! <img src="next.png" alt="next" id="next"> </button>
+      </div></div>
+      
+      <audio src="" id="errorAudio"></audio>
+  <!-- stylead framediv men inte säker om ska vara så -->
+      <div class="frame"> </div>
+      <!-- <div class="bottom"><div class="framebottom"></div></div>    -->
+      
+      <div id="sideart"> 
+        <!-- Lägg img me t.ex butterflies och lägg på höger sida snett rotated kanske ? --> 
+        <img src="illustration.jpg" alt="illustration" id="illustration">
+      </div>
+
+      <footer> <div class="footertext"><h2>Connect</h2><p><br> +46 01 001 101 <br> shoppingstore@business.com <br> P G Vejdes väg, 351 95 Växjö</p>
+      </div> 
+                <div class="footertext"><h2>About</h2><p><br> Our goal is to create faster, better and more personal experiences <br> <br> Our stores always have helpful people around <br>So that you can get the best experience possible!  </p></div> 
+
+                <div class="footertext" id='sendfeedbackDiv'>  <p><br> We would love to hear what you think about our service, by simply sending us your emotion, you help us create better service! </p><br>
+
+                    <select name="sendfeedback" id="sendfeedback" placeholder="😄">
+                      <OPTION Value="not satisfied">😡</OPTION>
+                      <OPTION Value="not so satisfied">😞</OPTION>
+                      <OPTION Value="no big feeling">😐</OPTION>
+                      <OPTION Value="kind of good">🙂</OPTION>
+                      <OPTION Value="very good">😄</OPTION>
+                    </select> <button id="sendfbBtn" onclick="sendFeedback(document.getElementById('sendfeedback').value)">Send Emotion</button>
+                  </div>
+              </div>
+      </footer>
+      
+      <script>
+        //shopping bag
+      let storedX = JSON.parse(localStorage.counter);
+      //console.log(storedX);
+      let cartCounter = document.getElementById('counting_cart'); 
+      cartCounter.innerHTML = storedX;
+      //end shopping bag från localstorage 
+      </script>
+</body>
+</html>
