@@ -955,6 +955,43 @@ select {
     box-shadow: 10px 10px 60px #504f4f,
     -20px -20px 60px #ffffff;;
 }
+/* SHOW ALL CLOTHES PAGE */
+.showallshirts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30vw;
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+
+    position: relative;
+    top: 15%;
+    right: 90%;
+
+    color: black;
+}
+.showallpants{
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-column: 4 / 5;
+    grid-row: 2 / 4;
+
+    position: relative;
+    right: 50%;
+    top: 15%;
+}
+
+.showallshirts, .showallpants{
+    color: black;
+    background: rgba(213, 255, 251, 0.2);
+    border-radius: 9px;
+    box-shadow: -20px -20px 60px rgba(213, 255, 251, 0.2), 20px 20px 60px white;
+    
+}
 
 
 

@@ -49,7 +49,7 @@ function shoppingCart () {
     //ändrar body document till nav och footer för att sen lägga in div med items 
     document.body.innerHTML = 
     //navigation
-    ' <nav class="navbar"><a href="index.html"><img src="logotype SL.png" alt="Company Logo"></a><ul class="nav"><li class="nav-item"><a href="index.html" class="current glbnav">Home </a></li><li class="nav-item"><a href="camera.html" class="glbnav"> Find your Style </a></li><li class="nav-item"><a href="" class="glbnav"> Available in Store </a></li></ul> <button id="shoppingcart_link" onclick="shoppingCart()"><img src="shopping-cart.png" alt="shoppingcart" class="shopcart_img"><p id="counting_cart"></p></button></nav><div id="navinfodiv"><li id="navinfo"><p> i </p></li> <p id="phover"> If any problems occur, kindly contact our employees in the store. <br> <br> If noone is available at this time, you can turn to our customer service, which is available during all our opening hours. <br> <br> Telephone: +46 01 001 101 </p></div>' + 
+    ' <nav class="navbar"><a href="index.html"><img src="logotype SL.png" alt="Company Logo"></a><ul class="nav"><li class="nav-item"><a href="index.html" class="glbnav">Home </a></li><li class="nav-item"><a href="camera.html" class="glbnav"> Find your Style </a></li><li class="nav-item"><a href="viewclothes.html" class="glbnav"> Available in Store </a></li></ul> <button id="shoppingcart_link" onclick="shoppingCart()"><img src="shopping-cart.png" alt="shoppingcart" class="shopcart_img"><p id="counting_cart"></p></button></nav><div id="navinfodiv"><li id="navinfo"><p> i </p></li> <p id="phover"> If any problems occur, kindly contact our employees in the store. <br> <br> If noone is available at this time, you can turn to our customer service, which is available during all our opening hours. <br> <br> Telephone: +46 01 001 101 </p></div>' + 
     //footer
     '<footer> <div class="footertext"><h2>Connect</h2><p><br> +46 01 001 101 <br> shoppingstore@business.com <br> P G Vejdes väg, 351 95 Växjö</p></div> <div class="footertext"><h2>About</h2><p><br> Our goal is to create faster, better and more personal experiences <br> <br> Our stores always have helpful people around <br>So that you can get the best experience possible!  </p></div> <div class="footertext" id="sendfeedbackDiv">  <p><br> We would love to hear what you think about our service, by simply sending us your emotion, you help us create better service! </p><br><select name="sendfeedback" id="sendfeedback" placeholder="😄"><OPTION Value="not satisfied">😡</OPTION><OPTION Value="not so satisfied">😞</OPTION><OPTION Value="no big feeling">😐</OPTION><OPTION Value="kind of good">🙂</OPTION><OPTION Value="very good">😄</OPTION></select> <button id="sendfbBtn" onclick="sendFeedback(document.getElementById("sendfeedback").value)">Send Emotion</button></div></div></footer>';
 
@@ -173,12 +173,16 @@ function errorItem () {
 }
 //function för footer feedback
 function sendFeedback (value) {
+    let emote;
+
     if (value == 'not satisfied') {
         let src = "soundsnoti/mixkit-NotHappyAnswer.wav";
         let audio = document.getElementById('errorAudio');
             audio.setAttribute("src", src);
             audio.volume = 0.1;
             audio.play();
+
+            emote = '&#128545';
     }
     else if (value == 'kind of good' || value == 'very good') {
         let src = "soundsnoti/mixkit-NiceAnswer.wav";
@@ -186,6 +190,8 @@ function sendFeedback (value) {
             audio.setAttribute("src", src);
             audio.volume = 0.1;
             audio.play();
+
+            emote = '&#128513';
     }
     else {
         let src = "soundsnoti/mixkit-cooking-stopwatch-alert-1792.wav";
@@ -193,11 +199,13 @@ function sendFeedback (value) {
             audio.setAttribute("src", src);
             audio.volume = 0.1;
             audio.play();
+
+            emote = '&#128528';
     }
 
     let div = document.createElement('div');
     div.className = 'responseFeedbackDiv';
-    div.innerHTML = '<p> Thank your for your Emotional Feedback! <br> Your emotion to our service was: ' + '"' + value + '"' + '<br> we appreciate your feedback! </p> This window will close automatically in 5seconds ';
+    div.innerHTML = '<p> Thank your for your Emotional Feedback! <br> Your emotion to our service was: ' + '"' + value + '' + emote + '"' + '<br> we appreciate your feedback! </p> This window will close automatically in 5seconds ';
     let btn = document.createElement('button');
     btn.className = 'deleteresponseFeedbackDiv';
     btn.innerHTML = 'Close now?';

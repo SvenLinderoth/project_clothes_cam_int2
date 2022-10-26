@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>taking picture from webcam using webcam.js</title>
+    <title>allClothes </title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="shoppingcart.js"></script>
+</head>
 </head>
 <body>
     <nav class="navbar">
@@ -14,30 +15,16 @@
 
         <ul class="nav">
           <li class="nav-item"><a href="index.html" class="glbnav">Home </a></li>
-          <li class="nav-item"><a href="camera.html" class="current glbnav"> Find your Style </a></li>
-          <li class="nav-item"><a href="viewclothes.html" class="glbnav"> Available in Store </a></li>
+          <li class="nav-item"><a href="camera.html" class="glbnav"> Find your Style </a></li>
+          <li class="nav-item"><a href="viewclothes.html" class="current glbnav"> Available in Store </a></li>
         </ul> 
         <button id="shoppingcart_link" onclick="shoppingCart()"><img src="shopping-cart.png" alt="shoppingcart" class="shopcart_img"><p id="counting_cart"></p></button>
       </nav>
-
+      
       <div id="navinfodiv"><li id="navinfo"><p> i </p></li> <p id="phover"> If any problems occur, kindly contact our employees in the store. <br> <br> If noone is available at this time, you can turn to our customer service, which is available during all our opening hours. <br> <br> Telephone: +46 01 001 101 </p></div>
-    
 
-
-    <div id="cameraPosition"><div id="camera"> </div></div>
-
-    <div id="snapDiv">
-            <button id="takeSnap" onclick="setTimer(3)";><img id="cameraButtonImg" src="camera.png" alt="camera"><p id="snapshotText">Take Snapshot </p></button>
-            
-    </div>
-
-    <div id="resultsDiv"><div id="results"></div></div>
-
-    <div id="countdown"> <h3 id="counter"> </h3></div>
-   
-    <div id="createButton"> <h1 id="h1text">Are you happy with this Picture? <br> Press 'Yes' to continue, or 'No' to take a new picture</h1> </div>
-
-    <div id="errorShopDiv">
+      <audio src="" id="errorAudio"></audio>
+      <div id="errorShopDiv" style="position: relative; left: 7.5%; top: -40%;">
         <!-- <div id='infoShop'>
             <p class="itemInfo">In the picture bellow <br> you can see where your item is located <br> <br> further down you can also see the products information</p>
             </h1><img src="findClothes (images)/findshirt1.jpg" alt="findclothes">
@@ -46,19 +33,8 @@
         
     <!-- <div id="errorShop"> <h1> We apologise! </h1> <p>The chosen size is not available in store..</p> <p> You can press 'order' to notify us! </p> <p>But it might take up to 12days for arrival in store. </p> <button onclick="errorItem()"> Order! </button></div> -->
 </div>
-<audio src="" id="errorAudio"></audio>
-<div class='mall-div'>
-        <img src="mall2.png" alt="mall" class='mall'>
-    </div>
-    <div id="imgCenter"> 
 
-        <img src="" alt="" id="shirtHolder"> 
-
-        <img src="" alt="" id="pantsHolder">
-    
-    </div> 
-    
-    <div id="displayClothes"> 
+      <div class="showallshirts"> 
 
         <h1> Shirts </h1>
 
@@ -109,11 +85,6 @@
             </div>
         </div>
 
-        <!-- <div class="shirts white"> 
-            <img src="clothes/tshirt_white.png" alt="shirt2-white" class="imgshirt" onclick="copyImg('clothes/tshirt_white.png')">
-            <img src="clothes/shirt1_white.png" alt="shirt2-white" class="imgshirt" onclick="copyImg('clothes/shirt1_white.png')">
-            <img src="clothes/shirt2_white.png" alt="shirt2-white" class="imgshirt" onclick="copyImg('clothes/shirt2_white.png')">
-        </div> -->
         <div class="shopbtn ">
             <div class="shopdiv">
                 <img src="clothes/tshirt_white.png" alt="shirt2-white" class="imgshirt" onclick="copyImg('clothes/tshirt_white.png')">
@@ -162,15 +133,10 @@
         </div>
     </div>
 
-    <div id="displayMoreClothes"> 
+    <div class="showallpants"> 
 
         <h1> Pants </h1>
 
-        <!-- <div class="pants">
-            <img src="clothes/trousers.png" alt="pants" class="imgpants" onclick="copyPants('clothes/trousers.png')"> 
-            <img src="clothes/pants_black.png" alt="pants" class="imgpants" onclick="copyPants('clothes/pants_black.png')"> 
-            <img src="clothes/pants_brown.png" alt="pants" class="imgpants" onclick="copyPants('clothes/pants_brown.png')"> 
-        </div> -->
         <div class="shopbtn ">
             <div class="shopdiv ">
                 <img src="clothes/trousers.png" alt="pants" class="imgpants" onclick="copyPants('clothes/trousers.png')"> 
@@ -218,11 +184,6 @@
             </div>
             </div>  
 
-        <!-- <div class="pants">
-            <img src="clothes/loose-pants.png" alt="pants" class="imgpants" onclick="copyPants('clothes/loose-pants.png')"> 
-            <img src="clothes/loose-pants black.png" alt="pants" class="imgpants" onclick="copyPants('clothes/loose-pants black.png')"> 
-            <img src="clothes/loose-pants brown.png" alt="pants" class="imgpants" onclick="copyPants('clothes/loose-pants brown.png')"> 
-        </div> -->
         <div class="shopbtn ">
             <div class="shopdiv ">
                 <img src="clothes/loose-pants.png" alt="pants" class="imgpants" onclick="copyPants('clothes/loose-pants.png')"> 
@@ -271,182 +232,40 @@
         </div>
     </div>
 
-    <footer> <div class="footertext"><h2>Connect</h2><p><br> +46 01 001 101 <br> shoppingstore@business.com <br> P G Vejdes väg, 351 95 Växjö</p>
-    </div> 
-              <div class="footertext"><h2>About</h2><p><br> Our goal is to create faster, better and more personal experiences <br> <br> Our stores always have helpful people around <br>So that you can get the best experience possible!  </p></div> 
+      
+      <audio src="" id="errorAudio"></audio>
+  <!-- stylead framediv men inte säker om ska vara så -->
+      <div class="frame"> </div>
+      <!-- <div class="bottom"><div class="framebottom"></div></div>    -->
+      
+      <div id="sideart"> 
+        
+      </div>
 
-              <div class="footertext" id='sendfeedbackDiv'>  <p><br> We would love to hear what you think about our service, by simply sending us your emotion, you help us create better service! </p><br>
+      <footer> <div class="footertext"><h2>Connect</h2><p><br> +46 01 001 101 <br> shoppingstore@business.com <br> P G Vejdes väg, 351 95 Växjö</p>
+      </div> 
+                <div class="footertext"><h2>About</h2><p><br> Our goal is to create faster, better and more personal experiences <br> <br> Our stores always have helpful people around <br>So that you can get the best experience possible!  </p></div> 
 
-                  <select name="sendfeedback" id="sendfeedback" placeholder="😄">
-                    <OPTION Value="not satisfied">😡</OPTION>
-                    <OPTION Value="not so satisfied">😞</OPTION>
-                    <OPTION Value="no big feeling">😐</OPTION>
-                    <OPTION Value="kind of good">🙂</OPTION>
-                    <OPTION Value="very good">😄</OPTION>
-                  </select> <button id="sendfbBtn" onclick="sendFeedback(document.getElementById('sendfeedback').value, document.getElementById('sendfeedback'))">Send Emotion</button>
-                </div>
-            </div>
-    </footer>
+                <div class="footertext" id='sendfeedbackDiv'>  <p><br> We would love to hear what you think about our service, by simply sending us your emotion, you help us create better service! </p><br>
 
+                    <select name="sendfeedback" id="sendfeedback" placeholder="😄">
+                      <OPTION Value="not satisfied">😡</OPTION>
+                      <OPTION Value="not so satisfied">😞</OPTION>
+                      <OPTION Value="no big feeling">😐</OPTION>
+                      <OPTION Value="kind of good">🙂</OPTION>
+                      <OPTION Value="very good">😄</OPTION>
+                    </select> <button id="sendfbBtn" onclick="sendFeedback(document.getElementById('sendfeedback').value)">Send Emotion</button>
+                  </div>
+              </div>
+      </footer>
+      
+      <script>
+        //shopping bag
+      let storedX = JSON.parse(localStorage.counter);
+      //console.log(storedX);
+      let cartCounter = document.getElementById('counting_cart'); 
+      cartCounter.innerHTML = storedX;
+      //end shopping bag från localstorage 
+      </script>
 </body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script> 
-<script>     
-function test (){ alert("hej")}
-    //load all webcam
-
-    Webcam.set({
-        width:480,
-        height:480,
-        image_format:'jpeg',
-        jpeg_quality:100,
-    })
-    Webcam.attach("#camera")
-    //count functions som med timeouts på 1 sek vars leder till snapshot cam 
-    function setTimer(count) {
-    let countdiv = document.getElementById("counter");
-    countdiv.style.opacity = 1;
-
-        if (count == 3) {
-            countdiv.innerHTML = "3";
-            count--;
-            setTimeout(function() {
-                count2(count, countdiv);
-                }, 1000);
-        }
-    }
-    function count2(count, countdiv) {
-        if (count == 2) {
-            countdiv.innerHTML = "2";
-            count--;
-            setTimeout(function() {
-                count1(count, countdiv);
-                }, 1000);
-        }
-    }
-    function count1(count, countdiv) {
-        if (count == 1) {
-            countdiv.innerHTML = "1";
-            count--;
-            setTimeout(function() {
-                take_snapshot(countdiv);
-                }, 1000);
-        }
-    }
-
-    function take_snapshot(countdiv){
-        countdiv.innerHTML = "";
-        countdiv.style.opacity = 0;
-        //play the sound effect on camera snap
-        cameraSound(); 
-
-        Webcam.snap(function(data_uri){
-            //display results 
-            document.getElementById('results').innerHTML =
-            ' <img src="'+data_uri+'" class="displayedImg" />';
-        });
-    } 
-
-    function cameraSound() {
-        var audio = new Audio('mixkit-camera-digital-shutter-1432_01.mp3');
-        audio.volume = 0.2; //sänker volym 
-        audio.play();  //playar objektet audio 
-
-        newPicture();
-    }
-    function newPicture () {
-        //gör en button i existing div
-        let btn = document.createElement("button");
-        let createBtn =  document.getElementById("createButton");
-
-        btn.innerHTML = "Yes";
-        btn.classList.add("showImages");  //design för btn popup 1 .. vill fortsätta
-        createBtn.appendChild(btn); 
-        
-        let btn2 = document.createElement("button");
-        btn2.innerHTML = "No";
-        btn2.classList.add("deleteImages");  //design för btn popup 1 .. vill fortsätta
-        createBtn.appendChild(btn2);
-
-        document.getElementById("h1text").style.opacity = 1;
-    
-        takeAwayBtn(btn, btn2);
-    }
-    function takeAwayBtn (btn, btn2) {
-        document.getElementById("snapDiv").innerHTML = "";
-
-        btn.onclick = function() { 
-            document.getElementById("snapDiv").innerHTML = 
-            "<button id='takeSnap' onclick='setTimer(3)';> <p id='snapshotText'>Take Snapshot </p> </button> <img id='cameraButtonImg' src='camera.png' alt='camera'>";
-
-            document.getElementById("createButton").innerHTML = "<h1 id='h1text'>Are you happy with this Picture? <br> Press 'Yes' to continue, or 'No' to take a new picture</h1>";
-
-            showImages(); 
-        };
-
-        btn2.onclick = function() {  document.getElementById("snapDiv").innerHTML = 
-        "<button id='takeSnap' onclick='setTimer(3)';> <img id='cameraButtonImg' src='camera.png' alt='camera'> <p id='snapshotText'>Take Snapshot </p></button> "; 
-        
-        document.getElementById("createButton").innerHTML = " <h1 id='h1text'>Are you happy with this Picture? <br> Press 'Yes' to continue, or 'No' to take a new picture</h1>" ;
-
-        document.getElementById('results').innerHTML = "";
-    };
-    }
-    function showImages () {
-        document.getElementById("snapDiv").innerHTML = "";
-
-        //document.getElementById("displayClothes").style.opacity = 1;
-        document.getElementById("displayClothes").style.visibility = 'visible';
-        document.getElementById("displayMoreClothes").style.visibility = 'visible';
-
-//fixar knappar för reset och clear
-        let createBtn =  document.getElementById("createButton");
-
-        let btn = document.createElement("button");
-        btn.innerHTML = "CLEAR CLOTHES";
-        btn.classList.add("clearbtn");
-        createBtn.appendChild(btn); 
-
-        let btn2 = document.createElement("button"); 
-        btn2.innerHTML = "NEW PICTURE"; 
-        btn2.classList.add("resetbtn"); 
-        createBtn.appendChild(btn2); 
-
-        //clear button
-        btn.onclick = function() {    
-            document.getElementById("shirtHolder").src = "<img src='' alt='' id='shirtHolder'>";
-            document.getElementById("pantsHolder").src = "<img src='' alt='' id='pantsHolder'>";
-        }
-        //restart reset button
-        btn2.onclick = function() {
-            document.getElementById("shirtHolder").src = "<img src='' alt='' id='shirtHolder'>";
-            document.getElementById("pantsHolder").src = "<img src='' alt='' id='pantsHolder'>";
-
-            document.getElementById("snapDiv").innerHTML =  
-            "<button id='takeSnap' onclick='setTimer(3)';><img id='cameraButtonImg' src='camera.png' alt='camera'> <p id='snapshotText'>Take Snapshot </p></button> "; 
-            document.getElementById("createButton").innerHTML = "<h1 id='h1text'>Are you happy with this Picture? <br> Press 'Yes' to continue, or 'No' to take a new picture</h1>";
-            document.getElementById('results').innerHTML = "";
-        }
-    }
-    function copyImg (imgurl) {  //skickar med imgns url och lägger in i mitten
-        let shirt =  document.getElementById("shirtHolder");
-        shirt.src = imgurl;
-
-        document.getElementById("imgCenter").style.opacity = 1; 
-    }
-    function copyPants (imgurl) { //skickar med imgns på pants url och lägger in i mitten
-        let pants =  document.getElementById("pantsHolder");
-        pants.src = imgurl;
-
-        document.getElementById("imgCenter").style.opacity = 1; 
-    }
-
-    //shopping bag
-    let storedX = JSON.parse(localStorage.counter);
-    //console.log(storedX);
-    let cartCounter = document.getElementById('counting_cart'); 
-    cartCounter.innerHTML = storedX;
-    //end shopping bag från localstorage 
-    </script>
-
 </html>
