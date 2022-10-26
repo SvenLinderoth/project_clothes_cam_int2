@@ -851,6 +851,18 @@ select {
 #infoShop img {
     width: 110%;
 }
+.mall-div {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+.mall {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    width: 22%;
+    position: relative;
+    left: 39.5%;
+    top: 18%;
+}
 
 /* end camera  */
 
